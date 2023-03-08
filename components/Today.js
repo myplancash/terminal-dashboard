@@ -73,8 +73,11 @@ const formatWeather = ([results]) => {
 export default function Today({
   updateInterval = 900000,
   search = 'Nashville, TN',
-  degreeType = 'F'
+  degreeType = 'F',
+  top, left, width, height
 }) {
+
+  const boxProps = { top, left, width, height }
   const [fontIndex, setFontIndex] = React.useState(0)
   const [now, setNow] = React.useState(new Date())
   const weather = useRequest(
@@ -106,14 +109,7 @@ export default function Today({
   return (
     <Box
       label='Today'
-      top="center"
-      left="center"
-      width="65%"
-      height="65%"
-      border={{ type: 'line' }}
-      style={{
-        border: { fg: 'blue' }
-      }}
+      {...boxProps}
     >
       <text right={1}>
         ${chalk.blue(date)}
