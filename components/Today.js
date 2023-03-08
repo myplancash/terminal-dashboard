@@ -6,6 +6,7 @@ import util from 'util'
 import useDeepCompareEffect from 'use-deep-compare-effect'
 import chalk from 'chalk'
 import gradient from 'gradient-string'
+import Box from './Box';
 
 const findWeather = util.promisify(weather.find)
 
@@ -103,7 +104,8 @@ export default function Today({
   )
 
   return (
-    <box
+    <Box
+      label='Today'
       top="center"
       left="center"
       width="65%"
@@ -127,6 +129,6 @@ export default function Today({
           : formatWeather(weather.data)
         }
       </text>
-    </box>
+    </Box>
   )
 }
