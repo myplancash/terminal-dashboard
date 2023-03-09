@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import blessed from 'blessed'
 import { render } from 'react-blessed'
 import Today from './components/Today'
 
 const App = () => {
-  return <Today top={1} left={1} width='50%' height='50%'  updateInterval={900000} />
+  return (
+    <Fragment>
+      <Today top={1} left={1} width='50%' height='50%' updateInterval={900000} />
+      <Box></Box>
+    </Fragment>
+  )
 }
 
 const screen = blessed.screen({
